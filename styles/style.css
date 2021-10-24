@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.body-container {
+.body-container-quiz {
   border: 1px solid rgb(48, 36, 219);
   width: 600px;
   display: flex;
