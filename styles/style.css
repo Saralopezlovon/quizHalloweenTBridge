@@ -31,4 +31,5 @@ h1 {
 }
 .btn-next {
   border: 1px solid rgb(84, 190, 209);
+  display: none
 }
