@@ -5,30 +5,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/normalize.css" />     
 
-    <title>QuizHalloween</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+
+    <link rel="shortcut icon" type="image/jpg" href="./assets/icons/favicon.png"/>
+         
+
+    <title>Quiz</title>
 
   </head>
   <body id="body">
 
     <!-- Principal -->
 
-      <h1>Quiz Halloween</h1>
+    <div class="body-container-login">  
+      <div class="container-login"> 
+        <img src="./assets/images/logo.png" class="img-logo" alt="logoQuiz">  
 
-      <label for="user">Nombre</label>
-      <input type="text" id="user">
+      <!-- <h1 class="title-login">Quiz!</h1>  -->
+      <form>
 
-      <button class="btn-start" id="btn-start">Empezar</button>
 
-      <div class="graficaContainer">
-        <!-- aqui se añade la grafica del ranking -->
-      </div>
+        <!-- <label for="user">Nombre</label> -->
+        <input type="text" id="user" placeholder="Usuario">
+
+        <button class="btn-start" id="btn-start">Empezar</button>
+
+      </form>
+      
+      </div> 
+    </div>
+
 
     <!-- Preguntas Quiz -->
 
-    <div class="body-container-quiz">
+    <!-- <div class="body-container-quiz">
 
       <h1 class="question" id="question">Pregunta</h1>
       <div class="options-container" id="options-container">
@@ -40,12 +56,12 @@
 
       <button type="button" class="btn-next" id="btn-next">Siguiente</button>
 
-    </div>
+    </div> -->
 
     <!-- Resumen respuestas Quiz -->
 
-    <script defer type="module" src="./scripts/firebase.js"></script>
-    <script defer src="./scripts/quiz.js"></script>
+    <!-- <script defer type="module" src="./scripts/firebase.js"></script>
+    <script defer src="./scripts/quiz.js"></script> -->
 
   </body>
 </html>
