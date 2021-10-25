@@ -1,7 +1,6 @@
-/* Centramos contenido del quiz */
+/* Página principal*/
 
 .body-container-login{
-
   /* border: 1px solid rgb(235, 238, 56);  */
   height: 100vh;
   display: flex;
@@ -24,7 +23,6 @@
 }
 
 form{
-
   /* border: 1px solid blueviolet; */
   background-color: rgb(255, 255, 255);
   border-radius: 4px;
@@ -39,7 +37,6 @@ form{
 
 
 form input{
-
   border: 1px solid grey;  
   height: 48px;
   width: 18rem;
@@ -56,7 +53,6 @@ form input{
 }
 
 .btn-start{
-
   margin-top: 10px;
   border: 1px solid #2F2F2F;
   height: 48px;
@@ -74,39 +70,93 @@ form input{
 }
 
 .btn-start:hover{
-
   background-color: #383838;
 
 }
 
 /*Preguntas Quiz*/
 
-/* .body-container-quiz {
-  border: 1px solid rgb(48, 36, 219);
-  width: 600px;
+.body-container-quiz {
+  /* border: 1px solid rgb(48, 36, 219); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #46178F;
+}
+
+.container-quiz{
+  /* border: 1px solid yellow;   */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;  
+  width: 950px;
 }
-h1 {
-  border: 1px solid rgb(219, 36, 158);
+
+.question {
+  /* border: 1px solid rgb(219, 36, 158); */
+  color:white;
+  text-align: center;  
+  font-size: 60px;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 600;
+
 }
+
 .options-container {
-  border: 1px solid rgb(66, 219, 36);
-  width: 400px;
+  /* border: 1px solid rgb(66, 219, 36); */  
+	margin-bottom: 30px;
+  width: 800px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .options {
-  border: 1px solid rgb(36, 198, 219);
+  /* border: 1px solid rgb(36, 198, 219); */
   width: 150px;
-  text-align: center;
+  text-align: center;  
+	margin:10px;
+
+	width: 310px;
+	height: 90px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-weight: 600;
+  font-family: 'Arimo', sans-serif;
+	font-size: 20px;
+
+  border-radius: 5px;
+  color:white;
 }
-.btn-send {
-  border: 1px solid rgb(209, 84, 182);
+
+#option1{
+	background-color: #FF5757;
 }
+
+#option2{
+  background-color: #38B6FF;
+}
+
+#option3{
+  background-color: #FFBD59;
+}
+
+#option4{
+  background-color: #7ED957;
+}
+
+
 .btn-next {
-  border: 1px solid rgb(84, 190, 209);
-  display: none
-} */
+  /* border: 1px solid rgb(84, 190, 209); */
+  width: 70px; 
+  opacity: 80%; 
+}
+
+.btn-next:hover {
+  /* border: 1px solid rgb(84, 190, 209); */
+  opacity: 100%;
+}
