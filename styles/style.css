@@ -158,9 +158,19 @@ form input{
   /* border: 1px solid rgb(84, 190, 209); */
   width: 70px; 
   opacity: 80%; 
+  display:none;
 }
 
 .btn-next:hover {
   /* border: 1px solid rgb(84, 190, 209); */
   opacity: 100%;
+}
+
+.score{
+  color:white;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+
 }

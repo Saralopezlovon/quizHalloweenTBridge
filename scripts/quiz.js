@@ -65,6 +65,8 @@ const drawQuiz =  () => {
             document.getElementById('question').innerHTML= objDatos.questions[contador]
     
             incorrect = objDatos.incorrectAnswers[contador] 
+
+
      
            document.getElementById('option1').innerHTML= incorrect[0]        
      
@@ -88,33 +90,51 @@ const drawQuiz =  () => {
 
 drawQuiz()
 
+let puntuacion = [];
+let usuario = []
+let countScore = 0 ;
 
-const validate = () => {    
 
-    document.getElementById('option1').addEventListener('click', () => {
-        document.getElementById("body").style.backgroundColor = "red"
-        alert ("Incorrect answer, try again!")
+const validate = () => {  
+
+    document.getElementById('option1').addEventListener('click', () => {       
+        
+        // alert ("Incorrect answer, try again!")
+        document.getElementById("score").innerText= countScore
+        document.getElementById("btn-next").style.display= "flex"
+        
     })
 
     document.getElementById('option2').addEventListener('click', () => {
-        document.getElementById("body").style.backgroundColor = "red"
-        alert ("Incorrect answer, try again!")
-    })
-
-    document.getElementById('option3').addEventListener('click', () => {
-        document.getElementById("body").style.backgroundColor = "green"
-        alert ("Congratulations! This is the right one!")
+        
+        // alert ("Incorrect answer, try again!")
+        document.getElementById("score").innerText= countScore
         document.getElementById("btn-next").style.display= "flex"
 
     })
 
-    document.getElementById('option4').addEventListener('click', () => {
-        document.getElementById("body").style.backgroundColor = "red"
-        alert ("Incorrect answer, try again!")
+    document.getElementById('option3').addEventListener('click', () => {
+       
+        // alert ("Congratulations! This is the right one!")
+        
+        countScore+=1
+
+        document.getElementById("score").innerText= countScore      
+        document.getElementById("btn-next").style.display= "flex"           
+
     })
 
-}
+    document.getElementById('option4').addEventListener('click', () => {
+        
+        // alert ("Incorrect answer, try again!")        
 
+        document.getElementById("score").innerText= countScore
+        document.getElementById("btn-next").style.display= "flex"
+    })
+
+ 
+
+}
 
 validate()
 
