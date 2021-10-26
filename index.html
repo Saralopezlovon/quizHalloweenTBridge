@@ -21,9 +21,9 @@
   </head>
   <body id="body">
 
-    <!-- Página principal -->
+    <!--Página principal -->
 
-    <!-- <div class="body-container-login">  
+     <div class="body-container-login" id="body-container-login">  
       <div class="container-login">
 
         <img src="./assets/images/logo.png" class="img-logo" alt="logoQuiz"> 
@@ -32,17 +32,17 @@
           
           <input type="text" id="user" placeholder="Usuario">
 
-          <button class="btn-start" id="btn-start">Empezar</button>
+          <input type="button" class="btn-start" id="btn-start" value="Empezar"></input>
 
         </form>
       
       </div> 
-    </div> -->
+    </div>  
 
 
     <!-- Preguntas Quiz -->
 
-    <div class="body-container-quiz">
+    <div class="body-container-quiz" id="body-container-quiz">
       <div class="container-quiz">
 
         <h1 class="question" id="question">¿Pregunta muy larga para saber si me va a ocupar un montón?</h1>
@@ -61,8 +61,15 @@
 
     <!-- Resumen respuestas Quiz -->
 
-    <!-- <script defer type="module" src="./scripts/firebase.js"></script>
-    <script defer src="./scripts/quiz.js"></script> -->
 
+
+    <!-- Enlaces Javascript -->
+
+    <script defer type="module" src="./scripts/firebase.js"></script>
+
+    <script defer type="module" src="./scripts/show.js"></script>
+    
+    <script defer src="./scripts/quiz.js"></script>
+    
   </body>
 </html>
