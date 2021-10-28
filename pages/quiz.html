@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Enlaces a página de fuentes -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+
+    <link rel="shortcut icon" type="image/jpg" href="./assets/icons/favicon.png"/>
+         
+
+    <title>Quiz</title>
+
+  </head>
+  <body id="body">
+
+    <!-- Preguntas Quiz -->
+
+    <div class="body-container-quiz" id="body-container-quiz">
+      <div class="container-quiz">
+
+        <h1 class="question" id="question">¿Pregunta muy larga para saber si me va a ocupar un montón?</h1>
+        <div class="options-container" id="options-container">
+          <div class="options" id="option1">option1</div>
+          <div class="options" id="option2">option2</div>
+          <div class="options" id="option3">option3</div>
+          <div class="options" id="option4">option4</div>
+        </div>
+
+        <img src="./assets/images/icono-arrow2.png" alt="imagen-next" class="btn-next" id="btn-next">
+
+        <span class="score" id="score">score</span>
+
+      </div>
+
+    </div>
+
+    <!-- Resumen respuestas Quiz -->
+
+    <div class="body-container-result" id="body-container-result">
+
+      <div>
+
+        <h1 id ="userTitle">Valor1</h1>
+        <h2 id ="userScore">Valor2</h2>
+
+      </div>
+
+      <input type="button" class="btn-ranking" id="btn-ranking" value="Ver ranking">
+
+
+    </div>
+
+
+    <!-- Enlaces Javascript --> 
+
+    <script defer type="module" src="./scripts/quiz.js"></script>
+
+  
+  </body>
+  </html>
