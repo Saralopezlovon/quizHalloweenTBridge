@@ -67,7 +67,7 @@ const drawQuiz =  () => {
 
     .then (objDatos=>{
 
-    //   console.log(objDatos)       
+      console.log(objDatos)       
 
       document.getElementById('question').innerHTML= `${objDatos.questions[0]}`
 
@@ -82,7 +82,7 @@ const drawQuiz =  () => {
       document.getElementById('option4').innerHTML= incorrect[2]      
 
 
-      let contador = 1;
+      let contador = 0;
 
       document.getElementById('btn-next').addEventListener('click', ()=>{
 
@@ -173,7 +173,7 @@ const validate = () => {
         
         // alert ("Incorrect answer, try again!")
         document.getElementById("score").innerText= countScore
-        console.log("Incorrecta"+countScore)
+        // console.log("Incorrecta"+countScore)
         document.getElementById("btn-next").style.display= "flex"
         
     })
@@ -193,7 +193,7 @@ const validate = () => {
         countScore+=1
 
         document.getElementById("score").innerText= countScore 
-        console.log("La correcta"+countScore)     
+        // console.log("La correcta"+countScore)     
         document.getElementById("btn-next").style.display= "flex"           
 
     })
