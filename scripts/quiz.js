@@ -105,40 +105,53 @@ const drawQuiz =  () => {
            console.log("Este es mi contador de preguntas " + contador)
     
           }else{
-
-            // console.log("El resultado final de mis puntos es"+countScore)
             
             function showResult (){
+
+                //Llamamos a los container del html y los declaramos en una constante
+
+                const pantallaLanding =  document.getElementById("body-container-login")
+                const pantallaQuiz =  document.getElementById("body-container-quiz")
+                const pantallaResult =  document.getElementById("body-container-result")
+
+                //Mostramos y ocultamos las pantallas
+
                 pantallaLanding.style.display = "none"
                 pantallaQuiz.style.display = "none"
                 pantallaResult.style.display = "flex"
 
-                console.log("Soy el usuario "+ user + "Y mi puntuación es "+ countScore)
+                //Añadimos en el h1 de pantallaResult el nombre
+
+                document.getElementById("userTitle").innerText = user
+
+                //Añadimos en el h2 de pantallaResult la puntuación                
+
+                document.getElementById("userScore").innerText= countScore
+               
             }
 
             showResult()
-            
-            // Añadir datos
 
-            // document.getElementById('ver-ranking').addEventListener('click', async () =>{
+                        
+            //Añadir datos en el Firebase tanto de usuario, como de su puntuación total
 
-            //   try {                
+            document.getElementById('btn-ranking').addEventListener('click', async () =>{
+
+              try {                
             
-            //     const docRef = await addDoc(collection(db, "users"), {
-            //       name: user,
-            //       score: countScore,
+                const docRef = await addDoc(collection(db, "users"), {
+                  name: user,
+                  score: countScore,
                 
-            //     });            
+                });            
             
-            //     console.log("Document written with ID: ", docRef.id);
+                console.log("Document written with ID: ", docRef.id);
                 
-            //   } catch (e) {
-            //     console.error("Error adding document: ", e);
-            //   }
+              } catch (e) {
+                console.error("Error adding document: ", e);
+              }
             
-
-
-            // })
+            })
 
           }
 
@@ -193,8 +206,7 @@ const validate = () => {
         document.getElementById("btn-next").style.display= "flex"
     })
     
-    // return countScore
-    // console.log(countScore)
+
 }
 
 validate()
