@@ -5,49 +5,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/normalize.css" />     
 
-    <title>QuizHalloween</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+
+    <link rel="shortcut icon" type="image/jpg" href="./assets/icons/favicon.png"/>
+         
+
+    <title>Quiz</title>
 
   </head>
   <body id="body">
 
-    <!-- Principal -->
+    <!--Página principal -->
 
-      <h1>Quiz Halloween</h1>
+     <div class="body-container-login" id="body-container-login">  
+      <div class="container-login">
 
-      <label for="user">Nombre</label>
-      <input type="text" id="user">
+        <img src="./assets/images/logo.png" class="img-logo" alt="logoQuiz"> 
+     
+        <form>
+          
+          <input type="text" id="user" placeholder="Usuario">
 
-      <button class="btn-start" id="btn-start">Empezar</button>
+          <input type="button" class="btn-start" id="btn-start" value="Empezar">
 
-      <div class="graficaContainer">
-        <!-- aqui se añade la grafica del ranking -->
-      </div>
+        </form>
+      
+      </div> 
+    </div>  
+
 
     <!-- Preguntas Quiz -->
 
-    <div class="body-container-quiz">
+    <div class="body-container-quiz" id="body-container-quiz">
+      <div class="container-quiz">
 
-      <h1 class="question" id="question">Pregunta</h1>
-      <div class="options-container" id="options-container">
-        <div class="options" id="option1">option1</div>
-        <div class="options" id="option2">option2</div>
-        <div class="options" id="option3">option3</div>
-        <div class="options" id="option4">option4</div>
+        <h1 class="question" id="question">¿Pregunta muy larga para saber si me va a ocupar un montón?</h1>
+        <div class="options-container" id="options-container">
+          <div class="options" id="option1">option1</div>
+          <div class="options" id="option2">option2</div>
+          <div class="options" id="option3">option3</div>
+          <div class="options" id="option4">option4</div>
+        </div>
+
+        <img src="./assets/images/icono-arrow2.png" alt="imagen-next" class="btn-next" id="btn-next">
+
+        <span class="score" id="score">score</span>
+
       </div>
-
-      <button type="button" class="btn-next" id="btn-next">Siguiente</button>
 
     </div>
 
+    <!-- Resumen respuestas Quiz -->
+
+    <div class="body-container-result" id="body-container-result">
+
+      <div>
+
+        <h1 id ="userTitle">Valor1</h1>
+        <h2 id ="userScore">Valor2</h2>
+
+      </div>
+
+      <input type="button" class="btn-ranking" id="btn-ranking" value="Ver ranking">
+
+
+    </div>
+
+
+    <!-- Enlaces Javascript -->
+
+    <script defer type="module" src="./scripts/firebase.js"></script>
+
+    <script defer type="module" src="./scripts/show.js"></script>
+    
+    <script defer type="module" src="./scripts/quiz.js"></script>
+    
   </div>
   <!-- graficas de chartist -->
   <div class="ct-chart ct-perfect-fourth"></div>
   
   <!-- Resumen respuestas Quiz -->
   <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  
   <script defer type="module" src="./scripts/firebase.js"></script>
   <script defer src="./scripts/quiz.js"></script>
   
