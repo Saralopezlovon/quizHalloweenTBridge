@@ -1,4 +1,4 @@
-/* Página principal*/
+/*---------------------------------- Página principal----------------------------------------*/
 
 .body-container-login{
   /* border: 1px solid rgb(235, 238, 56);  */
@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   background-color: #46178F;
-
   
 }
 
@@ -76,7 +75,7 @@ form input{
 
 }
 
-/*Preguntas Quiz*/
+/*--------------------------------Preguntas Quiz----------------------------------------------------*/
 
 .body-container-quiz {
   /* border: 1px solid rgb(48, 36, 219); */  
@@ -85,8 +84,7 @@ form input{
   justify-content: center;
   align-items: center;
   background-color: #46178F;
-  
-  
+  display:none; 
 }
 
 .container-quiz{
@@ -171,6 +169,56 @@ form input{
   font-family: 'Arimo', sans-serif;
   font-weight: 600;
   font-size: 18px;
+}
 
 
+
+/*----------------------------------Resumen respuestas Quiz------------------------------------------*/
+
+.body-container-result{
+  /* border: 1px solid red; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #46178F;
+  display: none;
+}
+
+.userInfo-container{
+  /* border: 1px solid orange; */
+  text-align: center;  
+  font-family: 'Arimo', sans-serif;
+  color:white;  
+}
+
+
+#userTitle{
+  /* border: 1px solid pink; */
+  font-weight: 600;
+  font-size: 95px;
+  margin-bottom: 15px;
+}
+
+#userScore{
+  /* border: 1px solid blue; */
+  margin-top: 0px;
+  font-weight: 600;
+  font-size: 80px;
+}
+
+.btn-ranking{
+  /* border: 1px solid green; */
+  font-weight: 600;
+  border-radius: 11px;
+  color: #ffffff;
+  font-size: 25px;
+  background: #43A4E4;
+  border-color: #43A4E4;
+  padding: 10px 20px 10px 20px;
+  
+}
+
+.btn-ranking:hover {
+  background: #3191cc;
 }
