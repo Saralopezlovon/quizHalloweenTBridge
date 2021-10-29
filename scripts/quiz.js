@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDBKJVvpPUdX1vXZN3X1VIcbI9Bl7frvZY",
@@ -65,9 +65,7 @@ const drawQuiz =  () => {
    
     getQuestions()
 
-    .then (objDatos=>{
-
-      console.log(objDatos)       
+    .then (objDatos=>{             
 
       document.getElementById('question').innerHTML= `${objDatos.questions[0]}`
 
@@ -100,9 +98,8 @@ const drawQuiz =  () => {
      
            document.getElementById('option3').innerHTML= objDatos.correctAnswer[contador]
      
-           document.getElementById('option4').innerHTML= incorrect[2]   
+           document.getElementById('option4').innerHTML= incorrect[2]              
            
-           console.log("Este es mi contador de preguntas " + contador)
     
           }else{
             
@@ -114,19 +111,19 @@ const drawQuiz =  () => {
                 const pantallaQuiz =  document.getElementById("body-container-quiz")
                 const pantallaResult =  document.getElementById("body-container-result")
 
-                //Mostramos y ocultamos las pantallas
+                //Ocultamos las dos primeras pantallas y mostramos la de resultados del usuario
 
                 pantallaLanding.style.display = "none"
                 pantallaQuiz.style.display = "none"
                 pantallaResult.style.display = "flex"
 
-                //Añadimos en el h1 de pantallaResult el nombre
+                //Añadimos en el h1 de pantallaResult el nombre del usuario
 
-                document.getElementById("userTitle").innerText = user
+                document.getElementById("userTitle").innerText = `¡Enhorabuena ${user}!`
 
-                //Añadimos en el h2 de pantallaResult la puntuación                
+                //Añadimos en el h2 de pantallaResult la puntuación del usuario                
 
-                document.getElementById("userScore").innerText= countScore
+                document.getElementById("userScore").innerText= `Tu puntuación es: ${countScore}` 
                
             }
 
@@ -137,21 +134,45 @@ const drawQuiz =  () => {
 
             document.getElementById('btn-ranking').addEventListener('click', async () =>{
 
-              try {                
+              try {      
+                
+                //Añadir el score total y el usuario a firestore
             
                 const docRef = await addDoc(collection(db, "users"), {
                   name: user,
                   score: countScore,
                 
-                });            
-            
-                console.log("Document written with ID: ", docRef.id);
+                })     
+
+                console.log("Document written with ID: ", docRef.id)
+
+                //Leemos los datos de firestore
+
+                let arrUsers=[]
+                let arrScores=[]
+
+                const querySnapshot = await getDocs(collection(db, "users"));
+                querySnapshot.forEach((doc) => {
+                  arrUsers.push(doc.data().name)                  
+                  arrScores.push(doc.data().score)                
+                });
+
+                console.log(arrUsers)
+
+
+                //Ocultamos la pantalla de resultados del usuario y mostramos la del ranking
+
+                // document.getElementById("body-container-result").style.display = "none"
+                // document.getElementById("body-container-ranking").style.display = "flex"
+
                 
               } catch (e) {
                 console.error("Error adding document: ", e);
               }
             
             })
+
+
 
           }
 
@@ -169,40 +190,28 @@ let countScore = 0 ;
 
 const validate = () => {      
 
-    document.getElementById('option1').addEventListener('click', () => {       
-        
-        // alert ("Incorrect answer, try again!")
-        document.getElementById("score").innerText= countScore
-        // console.log("Incorrecta"+countScore)
+    document.getElementById('option1').addEventListener('click', () => {      
+ 
         document.getElementById("btn-next").style.display= "flex"
         
     })
 
     document.getElementById('option2').addEventListener('click', () => {
-        
-        // alert ("Incorrect answer, try again!")
-        document.getElementById("score").innerText= countScore
+
         document.getElementById("btn-next").style.display= "flex"
 
     })
 
     document.getElementById('option3').addEventListener('click', () => {
-       
-        // alert ("Congratulations! This is the right one!")
         
         countScore+=1
-
-        document.getElementById("score").innerText= countScore 
-        // console.log("La correcta"+countScore)     
+   
         document.getElementById("btn-next").style.display= "flex"           
 
     })
 
-    document.getElementById('option4').addEventListener('click', () => {
-        
-        // alert ("Incorrect answer, try again!")        
-
-        document.getElementById("score").innerText= countScore
+    document.getElementById('option4').addEventListener('click', () => {    
+     
         document.getElementById("btn-next").style.display= "flex"
     })
     
