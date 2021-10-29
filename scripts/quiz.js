@@ -147,17 +147,44 @@ const drawQuiz =  () => {
                 console.log("Document written with ID: ", docRef.id)
 
                 //Leemos los datos de firestore
-
-                let arrUsers=[]
-                let arrScores=[]
+                
+                let arrData =[]
 
                 const querySnapshot = await getDocs(collection(db, "users"));
                 querySnapshot.forEach((doc) => {
-                  arrUsers.push(doc.data().name)                  
-                  arrScores.push(doc.data().score)                
+
+                  //Lo guardo en un array con muchos objetos 
+
+                  arrData.push(doc.data())                     
+            
                 });
 
-                console.log(arrUsers)
+                console.log(arrData)
+
+                arrData.sort((obj1, obj2)=>{
+
+                  if(obj1.score > obj2.score){
+                    return -1
+                  }else if (obj1.score < obj2.score) {
+                   return 1
+                  }else{
+                    return 0
+                  }
+                  
+                  });
+                  
+                  arrData = arrData.slice(0,10)
+                  
+                  let arrUsers=[]
+                  let arrScore=[]
+                  
+                  for (let i=0; i < arrData.length; i++){ 
+                    arrUsers.push(arrData[i].name)
+                    arrScore.push(arrData[i].score)
+                  }
+                  
+                  console.log(arrUsers)
+                  console.log(arrScore)
 
 
                 //Ocultamos la pantalla de resultados del usuario y mostramos la del ranking
