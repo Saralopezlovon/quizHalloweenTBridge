@@ -19,9 +19,10 @@
     <title>Quiz</title>
 
   </head>
+
   <body id="body">
 
-    <!--Página principal -->
+    <!------------------------------Página principal ----------------------------------------------------------->
 
      <div class="body-container-login" id="body-container-login">  
       <div class="container-login">
@@ -39,8 +40,7 @@
       </div> 
     </div>  
 
-
-    <!-- Preguntas Quiz -->
+    <!---------------------------- Preguntas Quiz ------------------------------------------------------------>
 
     <div class="body-container-quiz" id="body-container-quiz">
       <div class="container-quiz">
@@ -55,46 +55,39 @@
 
         <img src="./assets/images/icono-arrow2.png" alt="imagen-next" class="btn-next" id="btn-next">
 
-        <span class="score" id="score">score</span>
-
       </div>
 
     </div>
 
-    <!-- Resumen respuestas Quiz -->
+    <!-------------------------- Resumen respuestas Quiz ---------------------------------------------------->
 
     <div class="body-container-result" id="body-container-result">
 
-      <div>
+      <div class="userInfo-container" id="userInfo-container">
+        
+        <h1 id ="userTitle">¡Enhorabuena usuario!</h1>
+        <h2 id ="userScore">Tu puntuación es: 28</h2>
 
-        <h1 id ="userTitle">Valor1</h1>
-        <h2 id ="userScore">Valor2</h2>
+        <input type="button" class="btn-ranking" id="btn-ranking" value="Ver ranking">
 
       </div>
 
-      <input type="button" class="btn-ranking" id="btn-ranking" value="Ver ranking">
-
-
-    </div>
-
-
-    <!-- Enlaces Javascript -->
-
-    <script defer type="module" src="./scripts/firebase.js"></script>
-
-    <script defer type="module" src="./scripts/show.js"></script>
-    
-    <script defer type="module" src="./scripts/quiz.js"></script>
-    
-  </div>
-  <!-- graficas de chartist -->
-  <div class="ct-chart ct-perfect-fourth"></div>
+    </div>       
   
-  <!-- Resumen respuestas Quiz -->
+  <!-------------------------------- Página de ranking ------------------------------------------------------>
+
+  <div class="ct-chart ct-perfect-fourth"></div> 
+ 
+  
+  <!-------------------------------- Enlaces Javascript -----------------------------------------------------> 
+  
+  <script defer type="module" src="./scripts/show.js"></script>
+      
+  <script defer type="module" src="./scripts/quiz.js"></script>
+  
   <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-  
-  <script defer type="module" src="./scripts/firebase.js"></script>
-  <script defer src="./scripts/quiz.js"></script>
+
   
   </body>
-  </html>
+
+</html>
