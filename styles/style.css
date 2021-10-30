@@ -222,3 +222,64 @@ form input{
 .btn-ranking:hover {
   background: #3191cc;
 }
+
+/*----------------------------------Gráfica------------------------------------------*/
+
+.body-container-graphic {
+  border: 1px solid red;
+
+  background-color: #46178F;
+  /* width: 100vw; */
+  padding-top: 35px;
+  height: 100vh;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  display:none;
+}
+
+.title-ranking {
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 65px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 600;
+}
+
+.ct-chart {
+  width: 50%;
+  height: 40rem;
+  color:white;
+  font-family: "Arimo", sans-serif;
+  font-size: 18px;
+  margin: 0 auto;
+  /* border: 5px solid #0CD8D8; */
+  font-family: "Arimo", sans-serif;
+  margin-bottom: 0px;
+}
+
+.play-btn {
+  border: 1px solid #43A4E4; 
+  width: 18rem;
+  line-height: 2.375rem;
+  text-align: center;
+  background-color: #43A4E4;
+  color: white;
+  font-size: 25px;
+  border-radius: 11px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  box-sizing: border-box; 
+
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+

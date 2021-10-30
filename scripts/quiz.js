@@ -182,15 +182,37 @@ const drawQuiz =  () => {
                     arrUsers.push(arrData[i].name)
                     arrScore.push(arrData[i].score)
                   }
+
+                //Añadimos al eje x y eje y los arrays de usuarios y puntuaciones
                   
                   console.log(arrUsers)
                   console.log(arrScore)
 
+                  var info = {
+                    // A labels array that can contain any sort of values
+                    labels: arrUsers,
+                    // Our series array that contains series objects or in this case series data arrays
+                    series: arrScore,
+                  };
+
+                  var options = {
+                    width: "100%",
+                    height: "80%",
+                  };
+                  var distribute = {
+                    distributeSeries: true,
+                  };
+                  // Create a new line chart object where as first parameter we pass in a selector
+                  // that is resolving to our chart container element. The Second parameter
+                  // is the actual data object.
+                  new Chartist.Bar(".ct-chart", info, options, distribute);
+
+
 
                 //Ocultamos la pantalla de resultados del usuario y mostramos la del ranking
 
-                // document.getElementById("body-container-result").style.display = "none"
-                // document.getElementById("body-container-ranking").style.display = "flex"
+                document.getElementById("body-container-result").style.display = "none"
+                document.getElementById("body-container-graphic").style.display = "flex"
 
                 
               } catch (e) {
