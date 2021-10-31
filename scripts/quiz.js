@@ -18,7 +18,7 @@ const db = getFirestore (app)
 
 let user = ""
 
-//Me guardo la variable que el usuario ha introducido 
+//Guardar la variable que el usuario ha introducido 
 
 document.getElementById('btn-start').addEventListener('click', () =>{
     user = document.getElementById('user').value    
@@ -153,7 +153,7 @@ const drawQuiz =  () => {
                 const querySnapshot = await getDocs(collection(db, "users"));
                 querySnapshot.forEach((doc) => {
 
-                  //Lo guardo en un array con muchos objetos 
+                  //Lo guardamos en un array con muchos objetos 
 
                   arrData.push(doc.data())                     
             
@@ -185,36 +185,35 @@ const drawQuiz =  () => {
 
                 //Añadimos al eje x y eje y los arrays de usuarios y puntuaciones
                   
-                  console.log(arrUsers)
-                  console.log(arrScore)
-                  const ctx = document.getElementById("myChart").getContext("2d");
+                  // console.log(arrUsers)
+                  // console.log(arrScore)
+                  
+                  const ctx = document.getElementById('myChart').getContext('2d');
                   const myChart = new Chart(ctx, {
-                    type: "bar",
+                    type: 'bar',
                     data: {
-                      labels: ["pepe","sara","pablo","pedro","juan","michin30","new36","juana","pblo55","one2one"],
-                      datasets: [
-                        {
-                          // label: "scores",
-                          data: [10, 9, 3, 5, 2, 3, 9, 5, 8, 9],
+                      labels: arrUsers,
+                      datasets: [{
+                          label: 'Scores',
+                          data: arrScore,
                           backgroundColor: [
-                            "rgba(255, 99, 132, 0.2)",
-                            "rgba(54, 162, 235, 0.2)",
-                            "rgba(255, 206, 86, 0.2)",
-                            "rgba(75, 192, 192, 0.2)",
-                            "rgba(153, 102, 255, 0.2)",
-                            "rgba(255, 159, 64, 0.2)",
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
                           ],
                           borderColor: [
-                            "rgba(255, 99, 132, 1)",
-                            "rgba(54, 162, 235, 1)",
-                            "rgba(255, 206, 86, 1)",
-                            "rgba(75, 192, 192, 1)",
-                            "rgba(153, 102, 255, 1)",
-                            "rgba(255, 159, 64, 1)",
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
                           ],
-                          borderWidth: 3,
-                        },                        
-                      ],
+                          borderWidth: 1,
+                        }]
                     },
 
                     options: {
@@ -222,26 +221,21 @@ const drawQuiz =  () => {
                       scales: {
                         y: {
                           beginAtZero: true,
-                        },
-                      },
-                    },
+                        }
+                      }
+                    }
                   });
-
-
 
                 //Ocultamos la pantalla de resultados del usuario y mostramos la del ranking
 
                 document.getElementById("body-container-result").style.display = "none"
-                document.getElementById("body-container-graphic").style.display = "flex"
+                document.getElementById("body-container-graphic").style.display = "flex"              
 
-                
               } catch (e) {
                 console.error("Error adding document: ", e);
               }
-            
+
             })
-
-
 
           }
 
