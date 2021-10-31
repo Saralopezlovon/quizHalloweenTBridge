@@ -1,0 +1,34 @@
+/* charts pagina */
+
+.body-container-graphic {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+
+  background-color: #45d122;
+}
+
+.title {
+  width: 50vw;
+  color: rgb(241, 14, 147);
+  text-align: center;
+  font-size: 60px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 600;
+}
+
+.ct-chart ct-perfect-fourth {
+  width: 50vw;
+  border: 5px solid #0cd8d8;
+  background-color: rgb(189, 175, 175);
+  font-family: "Arimo", sans-serif;
+}
+
+.btn-container {
+  width: 50vw;
+  border: 5px solid #b81616;
+  background-color: blanchedalmond;
+}
