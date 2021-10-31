@@ -187,25 +187,45 @@ const drawQuiz =  () => {
                   
                   console.log(arrUsers)
                   console.log(arrScore)
+                  const ctx = document.getElementById("myChart").getContext("2d");
+                  const myChart = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                      labels: ["pepe","sara","pablo","pedro","juan","michin30","new36","juana","pblo55","one2one"],
+                      datasets: [
+                        {
+                          // label: "scores",
+                          data: [10, 9, 3, 5, 2, 3, 9, 5, 8, 9],
+                          backgroundColor: [
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(255, 206, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                          ],
+                          borderColor: [
+                            "rgba(255, 99, 132, 1)",
+                            "rgba(54, 162, 235, 1)",
+                            "rgba(255, 206, 86, 1)",
+                            "rgba(75, 192, 192, 1)",
+                            "rgba(153, 102, 255, 1)",
+                            "rgba(255, 159, 64, 1)",
+                          ],
+                          borderWidth: 3,
+                        },                        
+                      ],
+                    },
 
-                  var info = {
-                    // A labels array that can contain any sort of values
-                    labels: arrUsers,
-                    // Our series array that contains series objects or in this case series data arrays
-                    series: arrScore,
-                  };
-
-                  var options = {
-                    width: "100%",
-                    height: "80%",
-                  };
-                  var distribute = {
-                    distributeSeries: true,
-                  };
-                  // Create a new line chart object where as first parameter we pass in a selector
-                  // that is resolving to our chart container element. The Second parameter
-                  // is the actual data object.
-                  new Chartist.Bar(".ct-chart", info, options, distribute);
+                    options: {
+                      responsive: true,
+                      scales: {
+                        y: {
+                          beginAtZero: true,
+                        },
+                      },
+                    },
+                  });
 
 
 
