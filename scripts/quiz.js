@@ -217,7 +217,7 @@ const drawQuiz =  () => {
                     },
 
                     options: {
-                      responsive: true,
+                      // responsive: true,
                       scales: {
                         y: {
                           beginAtZero: true,
