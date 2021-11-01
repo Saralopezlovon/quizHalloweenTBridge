@@ -2,9 +2,7 @@
   /* border: 1px solid red; */
   background-color: #46178f;
   padding-top: 30px;
-
   height: 96.5vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,9 +53,14 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .title-ranking {
+    margin-top: 180px;
+    font-size: 70px;
+  }
+
   .body-container-graphic {
     padding-top: 40px;
-    height: 93vh;
+    height: 95.40vh;
   }
   .chart {
     width: 400px;
@@ -71,6 +74,8 @@
   }
   .title-ranking {
     font-size: 1.8rem;
+    margin-top:85px;
+
   }
 
   .chart {
