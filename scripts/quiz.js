@@ -17,13 +17,13 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore (app)
 let user = ""
 
-//Guardar la variable que el usuario ha introducido
+//Guardamos en una variable el usuario que se ha introducido
 
 document.getElementById('btn-start').addEventListener('click', () =>{
     user = document.getElementById('user').value    
 })
 
-//Extraemos los datos de api Quiz: preguntas, respuestas correctas, respuesta incorrecta
+//Extraemos los datos de api Quiz en un array de objetos con preguntas y respuestas
 
 let arrDatosTotal = []
 
@@ -33,7 +33,7 @@ const getQuestions = async () => {
         let response = await fetch(`https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple`)
         let data = await response.json()        
         let arrDatos = data.results  
-        // console.log("Esto es mi arrDatos: " + arrDatos)
+        // console.log("Este es mi arrDatos: " + arrDatos)
         arrDatos.map(elemento =>{          
           let objDatos = {
             Question: elemento.question,
@@ -58,7 +58,7 @@ const getQuestions = async () => {
           }
           arrDatosTotal.push(objDatos)
         })
-        // console.log(arrDatosTotal)
+       
         return arrDatosTotal
     }
     catch (error) {
@@ -66,13 +66,15 @@ const getQuestions = async () => {
     }
 }
 
+//Declaramos una variable que utilizaremos para hacer random las respuestas
+
 let orden =[0,1,2,3]
 
 function getRandom (orden){
   orden.sort(()=>{
     return Math.random()- 0.5;    
   })
-  // console.log(orden)
+
 }
 
 const drawQuiz =  () => {
@@ -136,11 +138,11 @@ const drawQuiz =  () => {
 
             showResult()
 
-            //Añadir datos en el Firebase tanto de usuario, como de su puntuación total
+            //Añadimos los datos a firestore 
             document.getElementById('btn-ranking').addEventListener('click', async () =>{
               try {   
 
-                //Añadir el score total y el usuario a firestore
+                //Añadimos el score total y el usuario 
                 const docRef = await addDoc(collection(db, "users"), {
                   name: user,
                   score: countScore,
@@ -154,11 +156,13 @@ const drawQuiz =  () => {
                 const querySnapshot = await getDocs(collection(db, "users"));
                 querySnapshot.forEach((doc) => {
 
-                  //Lo guardamos en un array con muchos objetos
+                  //Lo guardamos en un array con objetos por cada registro
                   arrData.push(doc.data())                    
                 });
 
                 // console.log(arrData)
+
+                //El array obtenido lo ordenamos de mayor a menor segun la clave score
 
                 arrData.sort((obj1, obj2)=>{
                   if(obj1.score > obj2.score){
@@ -170,7 +174,11 @@ const drawQuiz =  () => {
                   }
                   });
 
+                 //Extraemos las 10 primeras posiciones del array 
+
                   arrData = arrData.slice(0,10)
+
+                 //Extraemos a partir de ello en 2 arrays los datos por registro del usuario y su puntuación
 
                   let arrUsers=[]
                   let arrScore=[]
@@ -240,7 +248,7 @@ const drawQuiz =  () => {
 
 drawQuiz()
 
-
+//Realizamos una validación de respuestas que modifican el contador
 
 let countScore = 0 ;
 const validate = () => {      
@@ -248,9 +256,9 @@ const validate = () => {
       let valorOption1 = document.getElementById('option1').getAttribute("value")
       console.log(valorOption1)
       if(valorOption1 === "true" ){
-        countScore+=1
+        countScore+=1         
       }
-      // document.getElementById("btn-next").style.display= "flex"
+      
     })
     document.getElementById('option2').addEventListener('click', () => {
       let valorOption2 = document.getElementById('option2').getAttribute("value")
@@ -258,7 +266,7 @@ const validate = () => {
       if(valorOption2 === "true" ){
         countScore+=1
       }
-        // document.getElementById("btn-next").style.display= "flex"
+        
     })
     document.getElementById('option3').addEventListener('click', () => {
       let valorOption3 = document.getElementById('option3').getAttribute("value")
@@ -266,7 +274,7 @@ const validate = () => {
       if(valorOption3 === "true" ){
         countScore+=1
       }
-        // document.getElementById("btn-next").style.display= "flex"          
+                  
     })
     document.getElementById('option4').addEventListener('click', () => {  
       let valorOption4 = document.getElementById('option4').getAttribute("value")
@@ -274,7 +282,7 @@ const validate = () => {
       if(valorOption4 === "true" ){
         countScore+=1
       }
-        // document.getElementById("btn-next").style.display= "flex"
+        
     })
 }
 validate()
