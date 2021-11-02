@@ -13,6 +13,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore (app)
 
@@ -27,6 +28,8 @@ document.getElementById('btn-start').addEventListener('click', () =>{
 
 //Extraemos los datos de api Quiz: preguntas, respuestas correctas, respuesta incorrecta
 
+let arrDatosTotal = []
+
 const getQuestions = async () => {
 
     try {        
@@ -35,22 +38,47 @@ const getQuestions = async () => {
 
         let data = await response.json()        
 
-        let arrDatos = data.results       
+        let arrDatos = data.results   
+        
+        // console.log("Esto es mi arrDatos: " + arrDatos)
 
-        let questions = arrDatos.map((elemento)=>{
-            return (elemento.question)})
+        arrDatos.map(elemento =>{          
 
-        let correctAnswer = arrDatos.map((elemento)=>{
-            return (elemento.correct_answer)})
+          let objDatos = {
 
-        let incorrectAnswers =arrDatos.map((elemento)=>{
-            return(elemento.incorrect_answers)})     
-           
-                                   
-        let objDatos = {questions,correctAnswer,incorrectAnswers}
-       
+            Question: elemento.question,
+            
+            Answers: {
 
-        return objDatos ; 
+              0:{
+                text: elemento.correct_answer,
+                isCorrect: true
+              },
+
+              1:{
+                text: elemento.incorrect_answers[0],
+                isCorrect: false
+              },
+
+              2:{
+                text: elemento.incorrect_answers[1],
+                isCorrect: false
+              },
+
+              3:{
+                text: elemento.incorrect_answers[2],
+                isCorrect: false
+              }
+            }
+          }
+
+          arrDatosTotal.push(objDatos)
+          
+
+        })
+
+        // console.log(arrDatosTotal)
+        return arrDatosTotal
 
     }
 
@@ -61,45 +89,70 @@ const getQuestions = async () => {
 }
 
 
+let orden =[0,1,2,3]
+
+function getRandom (orden){
+  orden.sort(()=>{
+    return Math.random()- 0.5;    
+  }) 
+  // console.log(orden)
+
+}
+
+// getRandom(orden)
+
+
 const drawQuiz =  () => {
+  let i=0
    
     getQuestions()
 
-    .then (objDatos=>{             
+    .then (arrDatosTotal=>{  
+     
+      document.getElementById('question').innerHTML= arrDatosTotal[0].Question 
 
-      document.getElementById('question').innerHTML= `${objDatos.questions[0]}`
+      document.getElementById('option1').innerHTML= arrDatosTotal[0].Answers[0].text
+      document.getElementById('option1').setAttribute('value', arrDatosTotal[0].Answers[0].isCorrect)
 
-       let incorrect = objDatos.incorrectAnswers[0] 
+      document.getElementById('option2').innerHTML = arrDatosTotal[0].Answers[1].text
+      document.getElementById('option2').setAttribute('value', arrDatosTotal[0].Answers[1].isCorrect)
 
-      document.getElementById('option1').innerHTML=incorrect[0]        
+      document.getElementById('option3').innerHTML= arrDatosTotal[0].Answers[2].text
+      document.getElementById('option3').setAttribute('value', arrDatosTotal[0].Answers[2].isCorrect)
 
-      document.getElementById('option2').innerHTML = incorrect[1]
-
-      document.getElementById('option3').innerHTML=objDatos.correctAnswer[0]
-
-      document.getElementById('option4').innerHTML= incorrect[2]      
-
-
+      document.getElementById('option4').innerHTML= arrDatosTotal[0].Answers[3].text
+      document.getElementById('option4').setAttribute('value', arrDatosTotal[0].Answers[3].isCorrect)
+          
       let contador = 0;
-
+      
       document.getElementById('btn-next').addEventListener('click', ()=>{
+        
+        getRandom(orden)
+  
+        console.log(orden)
 
           if (contador < 9){
 
-            contador++
+           contador++
     
-            document.getElementById('question').innerHTML= objDatos.questions[contador]
-    
-            incorrect = objDatos.incorrectAnswers[contador] 
-     
-           document.getElementById('option1').innerHTML= incorrect[0]        
-     
-           document.getElementById('option2').innerHTML = incorrect[1]
-     
-           document.getElementById('option3').innerHTML= objDatos.correctAnswer[contador]
-     
-           document.getElementById('option4').innerHTML= incorrect[2]              
-           
+           for (let i = 0 ; i< orden.length; i++){            
+
+             document.getElementById('question').innerHTML= arrDatosTotal[contador].Question          
+       
+             document.getElementById('option1').innerHTML=arrDatosTotal[contador].Answers[orden[0]].text
+             document.getElementById('option1').setAttribute('value', arrDatosTotal[contador].Answers[orden[0]].isCorrect)
+       
+             document.getElementById('option2').innerHTML = arrDatosTotal[contador].Answers[orden[1]].text
+             document.getElementById('option2').setAttribute('value', arrDatosTotal[contador].Answers[orden[1]].isCorrect)    
+       
+             document.getElementById('option3').innerHTML= arrDatosTotal[contador].Answers[orden[2]].text
+             document.getElementById('option3').setAttribute('value', arrDatosTotal[contador].Answers[orden[2]].isCorrect)
+       
+             document.getElementById('option4').innerHTML= arrDatosTotal[contador].Answers[orden[3]].text
+             document.getElementById('option4').setAttribute('value', arrDatosTotal[contador].Answers[orden[3]].isCorrect)
+
+           }
+
     
           }else{
             
@@ -253,13 +306,30 @@ let countScore = 0 ;
 
 const validate = () => {      
 
-    document.getElementById('option1').addEventListener('click', () => {      
- 
-        document.getElementById("btn-next").style.display= "flex"
+
+    document.getElementById('option1').addEventListener('click', () => {
+
+      let valorOption1 = document.getElementById('option1').getAttribute("value")
+
+      console.log(valorOption1)
+
+      if(valorOption1 === "true" ){
+        countScore+=1
+      }
+
+      document.getElementById("btn-next").style.display= "flex"
         
     })
 
     document.getElementById('option2').addEventListener('click', () => {
+
+      let valorOption2 = document.getElementById('option2').getAttribute("value")
+
+      console.log(valorOption2)
+
+      if(valorOption2 === "true" ){
+        countScore+=1
+      }
 
         document.getElementById("btn-next").style.display= "flex"
 
@@ -267,13 +337,27 @@ const validate = () => {
 
     document.getElementById('option3').addEventListener('click', () => {
         
+      let valorOption3 = document.getElementById('option3').getAttribute("value")
+
+      console.log(valorOption3)
+
+      if(valorOption3 === "true" ){
         countScore+=1
+      }
    
         document.getElementById("btn-next").style.display= "flex"           
 
     })
 
-    document.getElementById('option4').addEventListener('click', () => {    
+    document.getElementById('option4').addEventListener('click', () => {   
+      
+      let valorOption4 = document.getElementById('option4').getAttribute("value")
+
+      console.log(valorOption4)
+
+      if(valorOption4 === "true" ){
+        countScore+=1
+      }
      
         document.getElementById("btn-next").style.display= "flex"
     })
