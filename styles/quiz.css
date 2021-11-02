@@ -1,18 +1,13 @@
-/*--------------------------------Preguntas Quiz----------------------------------------------------*/
-
 .body-container-quiz {
   /* border: 1px solid rgb(48, 36, 219); */
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  /* background-color: #46178f; */
-
+  align-items: center; 
   background-image: url(../assets/images/hojas.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-
   display: none;
 }
 
@@ -43,8 +38,7 @@
 }
 
 .options {
-  /* border: 1px solid rgb(36, 198, 219); */
-  width: 150px;
+  /* border: 1px solid rgb(36, 198, 219); */ 
   text-align: center;
   margin: 10px;
 
@@ -67,16 +61,32 @@
   background-color: #ff5757;
 }
 
+#option1:hover {
+  background-color: #e03838;
+}
+
 #option2 {
   background-color: #38b6ff;
+}
+
+#option2:hover {
+  background-color: #1192dd;
 }
 
 #option3 {
   background-color: #ffbd59;
 }
 
+#option3:hover {
+  background-color: #f7a936;
+}
+
 #option4 {
   background-color: #7ed957;
+}
+
+#option4:hover {
+  background-color: #64cf36;
 }
 
 .btn-next {
