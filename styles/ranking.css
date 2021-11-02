@@ -1,6 +1,12 @@
 .body-container-graphic {
   /* border: 1px solid red; */
-  background-color: #46178f;
+  /* background-color: #46178f; */
+
+  background-image: url(../assets/images/loros.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
   padding-top: 30px;
   height: 96.5vh;
   display: flex;
@@ -10,8 +16,8 @@
 }
 
 .title-ranking {
-  width: 100%;
-  color: white;
+  width: 100%;  
+  color: #01396A;
   text-align: center;
   font-size: 65px;
   font-family: "Arimo", sans-serif;
