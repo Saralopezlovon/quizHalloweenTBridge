@@ -1,0 +1,91 @@
+.body-container-graphic {
+  /* border: 1px solid red; */
+  background-image: url(../assets/images/loros.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  padding-top: 30px;
+  height: 96.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+.title-ranking {
+  width: 100%;  
+  color: #01396A;
+  text-align: center;
+  font-size: 65px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 600;
+}
+
+.chart {
+  /* border: 1px solid red; */
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255, 0.884);
+
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 40px;
+
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.play-btn {
+  margin-top: 40px;
+  border: 1px solid #43a4e4;
+  width: 18rem;
+  text-align: center;
+  background-color: #43a4e4;
+  color: white;
+  font-size: 25px;
+  border-radius: 11px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 10px 20px 10px 20px;
+}
+
+.play-btn:hover {
+  background: #3191cc;
+}
+
+@media only screen and (min-width: 768px) {
+  .title-ranking {
+    margin-top: 180px;
+    font-size: 70px;
+  }
+
+  .body-container-graphic {
+    padding-top: 40px;
+    height: 95.40vh;
+  }
+  .chart {
+    width: 400px;
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .body-container-graphic {
+    height: 94.5vh;
+  }
+  .title-ranking {
+    font-size: 1.8rem;
+    margin-top:85px;
+
+  }
+
+  .chart {
+    margin-top: 15px;
+    padding: 15px 0px 0px 0px;
+    width: 300px;
+    height: 170px;
+  }
+}

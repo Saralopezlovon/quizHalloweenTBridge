@@ -1,0 +1,69 @@
+.body-container-result {
+  /* border: 1px solid red; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../assets/images/buho.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: none;
+}
+
+.userInfo-container {
+  /* border: 1px solid orange; */
+  text-align: center;
+  font-family: "Arimo", sans-serif;
+  color: white;
+}
+
+#userTitle {
+  /* border: 1px solid pink; */
+  font-weight: 600;
+  font-size: 95px;
+  margin-bottom: 15px;
+}
+
+#userScore {
+  /* border: 1px solid blue; */
+  margin-top: 0px;
+  font-weight: 600;
+  font-size: 80px;
+}
+
+.btn-ranking {
+  /* border: 1px solid green; */
+  font-weight: 600;
+  border-radius: 11px;
+  color: #ffffff;
+  font-size: 25px;
+  background: #43a4e4;
+  border-color: #43a4e4;
+  padding: 10px 20px 10px 20px;
+}
+
+.btn-ranking:hover {
+  background: #3191cc;
+}
+
+@media only screen and (max-width: 320px) {
+  #userTitle {
+    font-size: 1.8rem;
+  }
+
+  #userScore {
+    font-size: 1.8rem;
+  }
+
+  .btn-ranking {
+    /* border: 1px solid green; */
+    font-weight: 600;
+    border-radius: 11px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    background: #43a4e4;
+    border-color: #43a4e4;
+    padding: 10px 20px 10px 20px;
+  }
+}

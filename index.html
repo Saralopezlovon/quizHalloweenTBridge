@@ -1,16 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="./styles/landing.css" />
+    <link rel="stylesheet" href="./styles/quiz.css" />
+    <link rel="stylesheet" href="./styles/resultados.css" />
+    <link rel="stylesheet" href="./styles/ranking.css" />
+
+    <link rel="stylesheet" href="./styles/normalize.css" />
+
+    <link rel="shortcut icon" type="image/jpg" href="./assets/icons/favicon.png"/>
+
+    <title>Quiz J&S</title>
+
+  </head>
+
+  <body id="body">
+
+    <!------------------------------Página principal ----------------------------------------------------------->
+
+    <div class="body-container-login" id="body-container-login">
+      <div class="container-login">
+        <img src="./assets/images/logo.png" class="img-logo" alt="logoQuiz" />
+
+        <form>
+          <input type="text" id="user" placeholder="Usuario" />
+          <input type="button" class="btn-start" id="btn-start" value="Empezar" />
+        </form>
+      </div>
+    </div>
+
+    <!---------------------------- Preguntas Quiz ------------------------------------------------------------>
+
+    <div class="body-container-quiz" id="body-container-quiz">
+      <div class="container-quiz">
+
+        <h1 class="question" id="question">Pregunta</h1>
+        <div class="options-container" id="options-container">
+          <div class="options" id="option1">option1</div>
+          <div class="options" id="option2">option2</div>
+          <div class="options" id="option3">option3</div>
+          <div class="options" id="option4">option4</div>
+
+        </div>
+
+        <img src="./assets/images/icono-arrow2.png" alt="imagen-next" class="btn-next" id="btn-next" />
+
+      </div>
+    </div>
+
+    <!-------------------------- Resumen respuestas Quiz ---------------------------------------------------->
+
+    <div class="body-container-result" id="body-container-result">
+      <div class="userInfo-container" id="userInfo-container">
+
+        <h1 id="userTitle">¡Enhorabuena usuario!</h1>
+        <h2 id="userScore">Tu puntuación es: X</h2>
+
+        <input type="button" class="btn-ranking" id="btn-ranking" value="Ver ranking"/>
+
+      </div>
+    </div>
+
+    <!-------------------------------- Página de ranking ------------------------------------------------------>
+
+    <div class="body-container-graphic" id="body-container-graphic">
+      <h1 class="title-ranking" id="title-ranking">¡Ranking 10 mejores puntuaciones!</h1>
+
+      <div class="chart">
+        <canvas id="myChart" ></canvas>
+      </div>
+
+      <input type="button" class="play-btn" id="play-btn" value="Juega de nuevo" onclick="location.reload()" />
+
+    </div>
+
+    <!-------------------------------- Enlaces Javascript ----------------------------------------------------->
+
+    <script defer type="module" src="./scripts/show.js"></script>
+
+    <script defer type="module" src="./scripts/quiz.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-
-
-    <script defer src="./scripts/script.js"></script>
-</body>
+  </body>
 </html>
