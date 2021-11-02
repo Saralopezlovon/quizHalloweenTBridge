@@ -4,7 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #46178f;
+  /* background-color: #46178f; */
+
+  background-image: url(../assets/images/elefantes.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
 }
 
 .container-login {
