@@ -8,11 +8,11 @@
   align-items: center;
   /* background-color: #46178f; */
 
-  background-image: url(../assets/images/perrito.jpg);
+  background-image: url(../assets/images/hojas.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  
+
   display: none;
 }
 
