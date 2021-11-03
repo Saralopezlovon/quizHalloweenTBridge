@@ -1,6 +1,9 @@
 .body-container-graphic {
   /* border: 1px solid red; */
-  background-color: #46178f;
+  background-image: url(../assets/images/parrot.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   padding-top: 30px;
 
   height: 96.5vh;

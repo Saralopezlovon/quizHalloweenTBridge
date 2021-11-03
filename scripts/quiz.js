@@ -35,7 +35,8 @@ const getQuestions = async () => {
 
         let data = await response.json()        
 
-        let arrDatos = data.results       
+        let arrDatos = data.results
+        console.log(data)       
 
         let questions = arrDatos.map((elemento)=>{
             return (elemento.question)})

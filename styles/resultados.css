@@ -4,8 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #46178f;
   display: none;
+  background-image: url(../assets/images/owl.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .userInfo-container {

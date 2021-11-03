@@ -4,7 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #46178f;
+  background-image: url(../assets/images/zebraEye.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .container-login {
@@ -75,5 +78,11 @@ form input {
 
   form {
     width: 308px;
+  }
+  .body-container-login {
+    background-image: url(../assets/images/zebraEye.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
 }
