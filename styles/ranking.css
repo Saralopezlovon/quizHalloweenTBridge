@@ -72,7 +72,7 @@
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 426px) {
   .body-container-graphic {
     height: 94.5vh;
   }

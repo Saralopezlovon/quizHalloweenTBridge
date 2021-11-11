@@ -74,7 +74,7 @@ form input {
   background-color: #383838;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 426px) {
   .img-logo {
     width: 250px;
   }
