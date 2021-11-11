@@ -25,16 +25,21 @@ document.getElementById('btn-start').addEventListener('click', () =>{
 
 //Extraemos los datos de api Quiz en un array de objetos con preguntas y respuestas
 
-let arrDatosTotal = []
+let arrDatosTotal = [];
+let arrCorrect = [];
+let contador = 0;
 
 const getQuestions = async () => {
 
-    try {        
+    try {
+      
         let response = await fetch(`https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple`)
         let data = await response.json()        
         let arrDatos = data.results  
         // console.log("Este es mi arrDatos: " + arrDatos)
-        arrDatos.map(elemento =>{          
+        arrDatos.map(elemento =>{  
+          arrCorrect.push(elemento.correct_answer)
+
           let objDatos = {
             Question: elemento.question,
             Answers: {
@@ -58,7 +63,7 @@ const getQuestions = async () => {
           }
           arrDatosTotal.push(objDatos)
         })
-       
+       console.log(arrCorrect)
         return arrDatosTotal
     }
     catch (error) {
@@ -86,16 +91,15 @@ const drawQuiz =  () => {
     .then (arrDatosTotal=>{  
       document.getElementById('question').innerHTML= arrDatosTotal[0].Question
       document.getElementById('option1').innerHTML= arrDatosTotal[0].Answers[0].text
-      document.getElementById('option1').setAttribute('value', arrDatosTotal[0].Answers[0].isCorrect)
+      document.getElementById('option1').setAttribute('value', arrDatosTotal[0].Answers[0].text)
       document.getElementById('option2').innerHTML = arrDatosTotal[0].Answers[1].text
-      document.getElementById('option2').setAttribute('value', arrDatosTotal[0].Answers[1].isCorrect)
+      document.getElementById('option2').setAttribute('value', arrDatosTotal[0].Answers[1].text)
       document.getElementById('option3').innerHTML= arrDatosTotal[0].Answers[2].text
-      document.getElementById('option3').setAttribute('value', arrDatosTotal[0].Answers[2].isCorrect)
+      document.getElementById('option3').setAttribute('value', arrDatosTotal[0].Answers[2].textt)
       document.getElementById('option4').innerHTML= arrDatosTotal[0].Answers[3].text
-      document.getElementById('option4').setAttribute('value', arrDatosTotal[0].Answers[3].isCorrect)
+      document.getElementById('option4').setAttribute('value', arrDatosTotal[0].Answers[3].text)
 
-      let contador = 0;
-
+      
       document.querySelectorAll('.options').forEach(item => {
         item.addEventListener('click', event => {
 
@@ -107,13 +111,13 @@ const drawQuiz =  () => {
            for (let i = 0 ; i< orden.length; i++){            
              document.getElementById('question').innerHTML= arrDatosTotal[contador].Question          
              document.getElementById('option1').innerHTML=arrDatosTotal[contador].Answers[orden[0]].text
-             document.getElementById('option1').setAttribute('value', arrDatosTotal[contador].Answers[orden[0]].isCorrect)
+             document.getElementById('option1').setAttribute('value', arrDatosTotal[contador].Answers[orden[0]].text)
              document.getElementById('option2').innerHTML = arrDatosTotal[contador].Answers[orden[1]].text
-             document.getElementById('option2').setAttribute('value', arrDatosTotal[contador].Answers[orden[1]].isCorrect)    
+             document.getElementById('option2').setAttribute('value', arrDatosTotal[contador].Answers[orden[1]].text)    
              document.getElementById('option3').innerHTML= arrDatosTotal[contador].Answers[orden[2]].text
-             document.getElementById('option3').setAttribute('value', arrDatosTotal[contador].Answers[orden[2]].isCorrect)
+             document.getElementById('option3').setAttribute('value', arrDatosTotal[contador].Answers[orden[2]].text)
              document.getElementById('option4').innerHTML= arrDatosTotal[contador].Answers[orden[3]].text
-             document.getElementById('option4').setAttribute('value', arrDatosTotal[contador].Answers[orden[3]].isCorrect)
+             document.getElementById('option4').setAttribute('value', arrDatosTotal[contador].Answers[orden[3]].text)
            }
           }else{
             
@@ -255,7 +259,7 @@ const validate = () => {
     document.getElementById('option1').addEventListener('click', () => {
       let valorOption1 = document.getElementById('option1').getAttribute("value")
       console.log(valorOption1)
-      if(valorOption1 === "true" ){
+      if(valorOption1 === arrCorrect[contador]){
         countScore+=1         
       }
       
@@ -263,7 +267,7 @@ const validate = () => {
     document.getElementById('option2').addEventListener('click', () => {
       let valorOption2 = document.getElementById('option2').getAttribute("value")
       console.log(valorOption2)
-      if(valorOption2 === "true" ){
+      if(valorOption2 === arrCorrect[contador] ){
         countScore+=1
       }
         
@@ -271,7 +275,7 @@ const validate = () => {
     document.getElementById('option3').addEventListener('click', () => {
       let valorOption3 = document.getElementById('option3').getAttribute("value")
       console.log(valorOption3)
-      if(valorOption3 === "true" ){
+      if(valorOption3 === arrCorrect[contador] ){
         countScore+=1
       }
                   
@@ -279,7 +283,7 @@ const validate = () => {
     document.getElementById('option4').addEventListener('click', () => {  
       let valorOption4 = document.getElementById('option4').getAttribute("value")
       console.log(valorOption4)
-      if(valorOption4 === "true" ){
+      if(valorOption4 === arrCorrect[contador] ){
         countScore+=1
       }
         
